@@ -3,6 +3,9 @@ import { signin, authenticate, isAuth } from "../../actions/auth";
 import Router from "next/router";
 import "../../node_modules/react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer, toast } from "react-toastify";
+import Link from "next/link";
+import LoginGoogle from "./LoginGoogle";
+import LoginFacebook from "./LoginFacebook";
 
 const SigninComponent = () => {
   const [values, setValues] = useState({
@@ -92,8 +95,13 @@ const SigninComponent = () => {
   return (
     <React.Fragment>
       <ToastContainer />
-
+      <LoginFacebook />
+      <LoginGoogle />
       {showForm && signinForm()}
+      <br />
+      <Link href="/auth/password/forgot">
+        <a className="btn btn-outline-danger btn-sm">Reset Password</a>
+      </Link>
     </React.Fragment>
   );
 };

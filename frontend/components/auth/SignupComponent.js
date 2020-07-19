@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { signup, isAuth } from "../../actions/auth";
+import { signup, isAuth, preSignup } from "../../actions/auth";
 import axios from "axios";
 import Router from "next/router";
 import { API } from "../../config";
@@ -29,41 +29,13 @@ const SignupComponent = () => {
     setValues({ ...values, loading: true, error: false });
     const user = { name, email, password };
 
-    axios({
-      method: "POST",
-      url: `${API}/signup`,
-      data: user,
-    })
-      .then((response) => {
-        console.log("SIgnup", response);
-        setValues({
-          ...values,
-          name: "",
-          email: "",
-          password: "",
-          error: "",
-          loading: false,
-          message: response.data.message,
-          showForm: false,
-        });
-        toast.success(response.data.message);
-      })
-      .catch((error) => {
-        console.log("Error", error.response.data.error);
-        setValues({
-          ...values,
-          error: error.response.data.error,
-          loading: false,
-        });
-        toast.error(error.response.data.error);
-      });
-
-    // signup(user).then((data) => {
-    //   console.log("SignupComp", data);
-    //   if (data.error) {
-    //     setValues({ ...values, error: data.error, loading: false });
-    //     console.table({ error, loading });
-    //   } else {
+    // axios({
+    //   method: "POST",
+    //   url: `${API}/signup`,
+    //   data: user,
+    // })
+    //   .then((response) => {
+    //     console.log("SIgnup", response);
     //     setValues({
     //       ...values,
     //       name: "",
@@ -71,11 +43,40 @@ const SignupComponent = () => {
     //       password: "",
     //       error: "",
     //       loading: false,
-    //       message: data.message,
+    //       message: response.data.message,
     //       showForm: false,
     //     });
-    //   }
-    // });
+    //     toast.success(response.data.message);
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error", error.response.data.error);
+    //     setValues({
+    //       ...values,
+    //       error: error.response.data.error,
+    //       loading: false,
+    //     });
+    //     toast.error(error.response.data.error);
+    //   });
+
+    preSignup(user).then((data) => {
+      console.log("SignupComp", data);
+      if (data.error) {
+        setValues({ ...values, error: data.error, loading: false });
+        toast.error(data.error);
+      } else {
+        setValues({
+          ...values,
+          name: "",
+          email: "",
+          password: "",
+          error: "",
+          loading: false,
+          message: data.message,
+          showForm: false,
+        });
+        toast.success(data.message);
+      }
+    });
   };
   const handleChange = (name) => (e) => {
     setValues({

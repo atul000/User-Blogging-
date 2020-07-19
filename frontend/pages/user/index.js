@@ -1,10 +1,22 @@
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Private from "../../components/auth/Private";
+import { APP_NAME } from "../../config";
 
 const UserIndex = () => {
+  const head = () => (
+    <head>
+      <title>Tech Blogs | {APP_NAME}</title>
+      <meta
+        name="description"
+        content="Tech Blogs and tutorials on web and mobile dev"
+      />
+    </head>
+  );
+
   return (
     <Layout>
+      {head()}
       <Private>
         <div className="container-fluid">
           <div className="row">

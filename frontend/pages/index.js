@@ -4,10 +4,13 @@ import Link from "next/link";
 const Index = () => {
   return (
     <Layout>
-      <h1>Index</h1>
-      <Link href="/signup">
-        <a>signup</a>
-      </Link>
+      <div className="landing">
+        <h1>Index</h1>
+
+        <Link href="/signup">
+          <a>signup</a>
+        </Link>
+      </div>
     </Layout>
   );
 };

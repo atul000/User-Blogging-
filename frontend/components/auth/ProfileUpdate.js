@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Router from "next/router";
 import { getCookie, isAuth, updateUser } from "../../actions/auth";
 import { getProfile, update } from "../../actions/user";
 import "../../node_modules/react-toastify/dist/ReactToastify.min.css";
@@ -178,7 +177,7 @@ const ProfileUpdate = () => {
   );
 
   return (
-    <div className="container">
+    <div className="container mt-4">
       <ToastContainer />
       <div className="row">
         <div className="col-md-4">

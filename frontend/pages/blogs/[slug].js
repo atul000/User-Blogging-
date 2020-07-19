@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { singleBlog, listRelated } from "../../actions/blog";
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from "../../config";
 import SmallCard from "../../components/blog/SmallCard";
+import DisqusThread from "../../components/DisqusThread";
 
 const SingleBlog = ({ query, router, blog }) => {
   const [related, setRelated] = useState([]);
@@ -79,6 +80,18 @@ const SingleBlog = ({ query, router, blog }) => {
     ));
   };
 
+  const showComments = () => {
+    return (
+      <div>
+        <DisqusThread
+          id={blog.id}
+          title={blog.title}
+          path={`/blog/${blog.slug}`}
+        />
+      </div>
+    );
+  };
+
   return (
     <React.Fragment>
       {head()}
@@ -97,7 +110,10 @@ const SingleBlog = ({ query, router, blog }) => {
               </section>
               <section>
                 <div className="container">
-                  <h1 className="display-2 pb-3 pt-3 text-center font-weight-bold">
+                  <h1
+                    style={{ fontFamily: "cursive" }}
+                    className="display-2 pb-3 pt-3 text-center"
+                  >
                     {blog.title}
                   </h1>
                   <p className="lead mt-3 mark">
@@ -122,13 +138,16 @@ const SingleBlog = ({ query, router, blog }) => {
             </div>
 
             <div className="container pb-5">
-              <h4 className="text-center pt-5 pb-5 h2">Related Blog </h4>
+              <h4
+                style={{ fontFamily: "cursive" }}
+                className="text-center pt-5 pb-2 h2"
+              >
+                Related Blog{" "}
+              </h4>
               <hr />
               <div className="row">{showRelatedBlog()}</div>
             </div>
-            <div className="container pb-5">
-              <p>show comments</p>
-            </div>
+            <div className="container pb-5 pt-3">{showComments()}</div>
           </article>
         </main>
       </Layout>

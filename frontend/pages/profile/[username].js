@@ -5,6 +5,7 @@ import { withRouter } from "next/router";
 import Layout from "../../components/Layout";
 import { userPublicProfile } from "../../actions/user";
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from "../../config";
+import ContactForm from "../../components/form/ContactForm";
 
 const UserProfile = ({ user, blogs, router }) => {
   const head = () => (
@@ -96,7 +97,7 @@ const UserProfile = ({ user, blogs, router }) => {
                     Message {user.name}
                   </h5>
                   <br />
-                  <p>Contact Form</p>
+                  <ContactForm authorEmail={user.email} />
                 </div>
               </div>
             </div>

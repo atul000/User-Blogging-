@@ -27,7 +27,17 @@ const Header = ({ router }) => {
     if (
       router.pathname === "/signin" ||
       router.pathname === "/signup" ||
-      router.pathname === "/"
+      router.pathname === "/" ||
+      router.pathname === "/admin" ||
+      router.pathname === "/user" ||
+      router.pathname === "/admin/crud/blog" ||
+      router.pathname === "/admin/crud/category-tag" ||
+      router.pathname === "/user/update" ||
+      router.pathname === "/user/crud/blog" ||
+      router.pathname === "/contact" ||
+      router.pathname === "/auth/password/forgot" ||
+      router.pathname === `/auth/password/reset/[id]` ||
+      router.pathname === `/auth/account/activate/[id]`
     ) {
       return null;
     } else {
@@ -38,7 +48,13 @@ const Header = ({ router }) => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <React.Fragment>
-      <Navbar color="light" light expand="md">
+      <Navbar
+        style={{ backgroundColor: "#e3f2fd" }}
+        className="navbar navbar-light"
+        // color="light"
+        // light
+        expand="md"
+      >
         <Link href="/">
           <NavLink style={{ cursor: "pointer" }} className="font-weight-bold">
             {APP_NAME}
@@ -52,6 +68,12 @@ const Header = ({ router }) => {
               <NavItem>
                 <Link href="/blogs">
                   <NavLink style={{ cursor: "pointer" }}>Blogs</NavLink>
+                </Link>
+              </NavItem>
+
+              <NavItem>
+                <Link href="/contact">
+                  <NavLink style={{ cursor: "pointer" }}>Contact</NavLink>
                 </Link>
               </NavItem>
             </React.Fragment>
@@ -101,14 +123,13 @@ const Header = ({ router }) => {
               </NavItem>
             )}
             <NavItem>
-              <Link href="/user/crud/blog">
-                <NavLink
-                  className="btn btn-primary text-light"
-                  style={{ cursor: "pointer" }}
-                >
-                  Create Blog
-                </NavLink>
-              </Link>
+              <a
+                href="/user/crud/blog"
+                className="btn btn-primary text-light"
+                style={{ cursor: "pointer" }}
+              >
+                Create Blog
+              </a>
             </NavItem>
           </Nav>
         </Collapse>
