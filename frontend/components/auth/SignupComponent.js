@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { signup, isAuth, preSignup } from "../../actions/auth";
-import axios from "axios";
-import Router from "next/router";
-import { API } from "../../config";
+import Router, { withRouter } from "next/router";
 import "../../node_modules/react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -28,35 +26,6 @@ const SignupComponent = () => {
 
     setValues({ ...values, loading: true, error: false });
     const user = { name, email, password };
-
-    // axios({
-    //   method: "POST",
-    //   url: `${API}/signup`,
-    //   data: user,
-    // })
-    //   .then((response) => {
-    //     console.log("SIgnup", response);
-    //     setValues({
-    //       ...values,
-    //       name: "",
-    //       email: "",
-    //       password: "",
-    //       error: "",
-    //       loading: false,
-    //       message: response.data.message,
-    //       showForm: false,
-    //     });
-    //     toast.success(response.data.message);
-    //   })
-    //   .catch((error) => {
-    //     console.log("Error", error.response.data.error);
-    //     setValues({
-    //       ...values,
-    //       error: error.response.data.error,
-    //       loading: false,
-    //     });
-    //     toast.error(error.response.data.error);
-    //   });
 
     preSignup(user).then((data) => {
       console.log("SignupComp", data);
@@ -140,4 +109,4 @@ const SignupComponent = () => {
   );
 };
 
-export default SignupComponent;
+export default withRouter(SignupComponent);

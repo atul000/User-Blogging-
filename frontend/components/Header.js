@@ -37,7 +37,9 @@ const Header = ({ router }) => {
       router.pathname === "/contact" ||
       router.pathname === "/auth/password/forgot" ||
       router.pathname === `/auth/password/reset/[id]` ||
-      router.pathname === `/auth/account/activate/[id]`
+      router.pathname === `/auth/account/activate/[id]` ||
+      router.pathname === `/blogs/[slug]` ||
+      router.pathname === `/profile/[username]`
     ) {
       return null;
     } else {

@@ -239,7 +239,6 @@ const CreateBlog = ({ router }) => {
       <div className="row">
         <div className="col-md-8">
           <div onMouseMove={mouseMoveHandler}>
-            <h2>Create Blog Form</h2>
             {showError()}
             {showSuccess()}
             {createBlogForm()}

@@ -9,8 +9,8 @@ module.exports = withStyles({
   publicRuntimeConfig: {
     APP_NAME: "BLOG",
     API_DEVELOPMENT: "http://localhost:8000/api",
-    API_PRODUCTION: "https://blog.com/api",
-    PRODUCTION: false,
+    API_PRODUCTION: "https://user-blog-platform-api.herokuapp.com/api",
+    PRODUCTION: true,
     modules: true,
     DOMAIN_DEVELOPMENT: "http://localhost:3000",
     DOMAIN_PRODUCTION: "https://blog.com",

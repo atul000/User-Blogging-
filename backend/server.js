@@ -32,6 +32,8 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.get("/", (req, res) => res.send("Backend of application"));
+
 // routes middlewares
 app.use("/api", blogRoutes);
 app.use("/api", authRoutes);

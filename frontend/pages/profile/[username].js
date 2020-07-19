@@ -47,7 +47,7 @@ const UserProfile = ({ user, blogs, router }) => {
     <React.Fragment>
       {head()}
       <Layout>
-        <div className="container">
+        <div className="container mt-4">
           <div className="row">
             <div className="col-md-12">
               <div className="card">
