@@ -7,7 +7,7 @@ const withImages = require("next-images");
 
 module.exports = withStyles({
   publicRuntimeConfig: {
-    APP_NAME: "SEOBLOG",
+    APP_NAME: "BLOG",
     API_DEVELOPMENT: "http://localhost:8000/api",
     API_PRODUCTION: "https://blog.com/api",
     PRODUCTION: false,

@@ -56,9 +56,10 @@ const Header = ({ router }) => {
         expand="md"
       >
         <Link href="/">
-          <NavLink style={{ cursor: "pointer" }} className="font-weight-bold">
-            {APP_NAME}
-          </NavLink>
+          <i
+            style={{ color: "red", cursor: "pointer" }}
+            className="fab fa-blogger fa-2x"
+          />
         </Link>
 
         <NavbarToggler onClick={toggle} />
